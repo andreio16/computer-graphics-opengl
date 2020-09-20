@@ -1,0 +1,223 @@
+SUBIECTE REZOLVATE GRAFICA
+Sub 1.
+1.Ce se intelege prin proiectie axonometrica?
+R : Proiectia ortografica axonometrica este proiectia ortografica care reprezinta mai mult de o fata a obiectului, planul de proiectie nefiind paralel cu nici unul din planele sistemului de coordonate.
+2.Ce se intelege prin proiectie izometrica ?
+R : Proiectia izometrica este cea mai cunoscuta si cea mai restrictiva proiectie axonometrica. Ea se obtine prin orientarea planului de proiectie astfel incat sa se intersecteze axele sistemului de coordonate ale obiectului la distante egale fata de origine. 
+3.Ce se intelege prin proiectie oblica ?	
+R : Proiectia oblica se obtine prin proiectarea punctelor obiectului de-a lungul unor linii parelele, dar care nu sunt perpendiculare pe planul de proiectie.
+4.Ce se intelege prin proiectie cavalier ?
+R :Avand un punct (x,y,z) in urma proiectiei oblice se obtine punctual (xp,yp,0). Directia de proiectie oblica face unghiul alfa cu linia de pe planul de proiectie z=0, care uneste (xp,yp,0) cu (x,y,0). In functie de valoarea unghiului de proiectie alfa se poate face o clasificare a proiectiilor paralele oblice. Astfel pentru alfa=45 grade se obtine proiectia cavalier.
+5.Ce se intelege prin proiectie ?
+R :  Transformarea de proiectie este transformarea punctelor dintr-un sistem n-dimensional intr-un sistem de dimensiune mai mica decat n. Proiectia unui obiect 3D este definita de intersectia unor raze de proiectie care pornesc dintr-un centru de proiectie cu planul de proiectie .
+6.Cum se implementeaza proiectia intr-un pachet graphic?
+R.Coordonatele reale 3D sunt transformate in coordonatele sistemului de vizualizare,apoi este realizata decuparea fata de volumul de vizualizarea si proiectarea pe fereastra de proiectie
+7.Ce se intelege prin proiectie cabinet ?
+R :  tan alfa=2
+Pentru ungiul alfa corespunzator valorii tangentei, tan alfa=2, se obtine proiectia cabinet. Valoarea corespunzaotare a ungiului alfa este alfa= 64, 435 grade.
+8. Ce se intelege prin proiectie paralela ?
+R : Daca distanta dintre centrul de proiectie si planul de proiectie este infinita proiectia se numeste paralela. Proiectia paralela pastreaza dimensiunile relative ale obiectului si este utilizata in desenul tehnic pentru reprezentarea la scara a obiectelor tridimensionale.
+9.Ce se intelege prin proiectie perspectiva ?
+R : Daca distanta dintre centrul de proiectie si planul de proiectie este finita proiectia se numeste perspectiva. Proiectia perspectiva conduce la reprezentari realiste ale obiectelor, dar nu pastreaza raportul dimensiunilor diverselor parti ale obiectului, nu pastreaza valorile unghiurilor decat in cazul suprafetelor paralele cu planul de proiectie.
+10. Ce se intelege prin proiectia ortografica?
+R: Proiectia ortografica este cea pentru care liniile de proiectie sunt perpendiculare pe planul de proiectie.
+Sub 2.
+1.Ce se intelege prin viewport ?
+R : Viewportul este locul unde continutul planului de proiectie, denumit fereastra este mapat pentru afisarea pe un dispozitiv de afisare.
+2.Ce se intelege prin transformare de vizualizarea ?
+R : Transformarea de vizualizare este operatia de tansformare a coordonatelor reale ale obiectului in coordinate ale sistemului de vizualizare. 
+Pasi:
+a) se reflecta coordonatele fata de planul x0y al sistemului de vizualizare
+b) se translateaza originea sistemului de vizualizare in originea sistemului de coordonate reale
+c) se roteste sistemul de coordonate de vizualizare dupa 0y a sistemului de coordonate reale pana cand axele z ale celor 2 sisteme se suprapun
+d) se roteste sistemul de coordonate de vizualizare dupa 0z a sistemului de coordonate reale pana cand axele y ale celor doua sisteme se suprapun. 
+3.Ce se intelege prin volum de vizualizare ?
+R : Volumul de vizualizare reprezinta tot ceea ce se vede prin fereastra de vizualizare.
+4.Ce se intelege prin fereastra de vizualizare?
+R : Fereastra de vizualizare se afla in planul de vizualizare, determinata de valorile maxime si minime ale coodonatelor x si y. Poate fi pozitionata oriunde in planul de vizualizare.
+5.Ce se intelege prin normalizarea volumului de vizualizare ?
+R : Normalizarea volumului reprezinta convertirea volumului de vizualizare la un paralelipiped regulat pentru simplificarea calculelor.
+6.Cum se defineste forma si dimensiunea volumului de vizualizare?
+R: Forma exacta a volumului de vizualizare este dependenta de tipul proiectiei cerute de utilizatorul pachetului grafic. In cazul proiectiei paralele forma este un paralelipiped infinit iar pentru proiectia perspective volumul de vizualizare este un trunchi de piramida cu varful in centrul de proiectie. Pentru delimitarea unui volum de vizualizare finit se utilizeaza doua plane, apropiat si departat, paralele cu planul de vizualizare numite near si far sau front si back.
+7.Care este succesiunea logica a operatiilor de vizualizare?
+R:(Coordonate reale 3D) -> Transformarea in coordonate ale sistemului de vizualizare -> (Coordonate 3D ale sistemului de vizualizare) -> Decuparea fata de volumul de vizualizare ->(Coordonate 3D ale sistemului de vizualizare) -> Proiectarea pe fereastra de proiectie -> (Coordonate 2D ale sistemului de vizualizare) -> Transformarea fereastra-viewport 2D -> (Coordonate 2D ale sistemului normalizate) -> Transformarea in coordonate ale dispozitivului de afisare -> Afisare pe ecran
+8.Care este succesiunea operatiilor de vizualizare intr-un pachet grafic?
+R: (Coordonate reale 3D) -> Transformarea in coordonate ale sistemului de vizualizare -> (Coordonate 3D ale sistemului de vizualizare) -> Convertirea volumului de vizualizare la un paralelipiped regulat -> (Coordonate 3D ale sistemului de vizualizare) ->  Convertirea la un viewport tridimensional -> (Coordonate 3D normalizate) -> Decuparea fata de viewportul de proiectie 3D -> Coordonate 3D normalizate) -> Coordonate 3D normalizate) -> Proiectia ortografica pe un viewport bidimensional-> (Coordonate 2D normalizate) -> Transformarea in coordonate ale dispozitivului de afisare -> Afisare pe ecran
+Sub 3.
+1. Cum se pot modela curbele, in mod interactiv, in grafica?
+R: Exista corpuri care pot fi modelate cu ajutorul ecuatiilor matematice, dar pentru anumite obiecte din natura, pentru modelarea schitelor realizate de artisti etc. este necesara modelarea obiectelor cu ajutorul coordonatelor diferitelor puncte aflate pe suprafata obiectelor. O modalitate de reprezentare a unui obiect oarecare, folosind un pachet grafic este de a I se aproxima forma folosind un set de suprafete plane poligonale. Acestea aproximeaza o suprafata curbata asa cum o curba poate fi aproximata de o linie franta.Suprafetele corpurilor solide pot fi de asemenea descrise de ecuatiile curbelor parametrice sau de reprezentarile de fractali. Orice obiect tridimensional poate fi reprezentat ca un set de suprafete plane, poligonale. Suprafetele poligonale pot fi utilizate si pentru reprezentarea aproximativa a suprafetelor curbe.Exista diferite tipuri de reprezentare a curbelor: Curbe parametrice polinomiale, Curbe Hermite, CurbeBezier, Curbe Spline, Curbe cubice B-Spline.
+2. Comparati curbele Bezier si curbele Spline
+R:Curbele Spline permit modelarea unor curbe de forme mai complicate. Oricate puncte de control ar avea nu creste gradul polinomului, gradul fiind dat de un paramentru suplimentar A.
+3.Cum se reprezinta suprafetele curbe in grafica?
+R: Afisarea suprafetelor curbe se poate realiza fie prin folosirea unui set de functii ce definesc suprafata de afisat, fie printr-un set de puncte specificate de utilizator. O curba tridimensionala poate fi reprezentata prin pereche funtii y=f(x) ; z=g(x).
+ Folosind punctele de control obtinem  ecuatii parametrice  polinomiale ce definesc suprafetele sau liniile curbe. Daca trec prin aceste puncte se spune ca sau intercalat punctele de control.
+4.Definiti conceptul de continuitate al curbelor si fiecare din tipurile de continuitate cunoscute.
+R : Tipul de continuitate intre segemente descrie gradul de netezire a curbei in punctul de contact. Daca doua segmente de curba au cate o extremitate comuna curba are continuitate geometrica de ordinul 0, notata Ggrade.Daca directia tangentelor la cele doua segmente de curba este aceeasi atunci curba are continuitate geometrica de ordinul I notata G1 daca o curba are continuitate geometrica de ordinul I inseamna ca pantele celor doi vectori tangeti la segmentele de curba sunt egale. Daca v1 si v2 sunt cei doi vectori tangenti la cele doua curbe, continuitatea geometrica de ordinul I se exprima ca v1=k*v2 . Daca vectorii tangenti la doua segmente de curba au nu doar  aceeasi directie ci si aceeasi marime curba are continuitate parametrica de ordinul I notata C1. Continuitatea de oridinul II inseamna ca in punctul de intersectie cele doua sectiuni sunt ambele convexe sau concave.
+5. Cum se determina normala la o supfrata parametrica?
+R: Normala la suprafata unui punct se calculeaza ca produsul vectorial dintre tg curbei parametrice care se intersecteaza in punctul respectiv. N=VsXVu Vs,Vu-vectori tangenti
+6.Ce intelgeti prin suprafata cvadrica ?
+R : Suprafetele cvadrice sunt suprafete definite prin ecuatia de gradul II. O ecuatie implicita de descriere a suprafetelor de forma urmatoare defineste familia de suprafete cvadrice f(x,y,z)=ax^2+by^2+cz^2+2xy+2dxy+2eyz+2fxz+2gx+2hy+2jz+k=0
+Pentru a=b=c=-k=1 si restul coeficientilor 0 se obtine ecuatia unei sfere cu raza 1 si cu centrul in origine.Pentru a=b=c=d=e=f=0 se obtine ecuatia planului.Ecuatia poate fi scrisa sub forma matriceala :
+                              |a d f  g|    |x|
+                              |d b e h|    |y|
+f(x,y,z)=[x y z 1]* |f e  c  j|* |z|
+                               |g h j  k|   |1|
+Suprafetele cvadrice intervin in aplicatiile de modelare a solidelor.
+7. Cum se determina normala la o suprafata cvadrica
+R: Suprafetele cvadrice permit o determinare usoara a normalei la suprafata.
+Normala la o suprafata cvadrica este definita de vectorul [df/dx  df/dy df/dz] 
+8.Care sunt caracteristicile curbelor Bezier? 
+R: O proprietate importanta a curbelor Bezier este aceea k curba trece prin punctele de control extreme care o definesc. Curbele Bezier mai au o proprietate importanta si anume aceea ca tangentele in punctele extreme coincid cu laturile  poligonului de control. Pt desenarea unei curbe inchise punctele extreme ale curbei trebuie sa aiba aceleasi coordonate.Un punct in vecinatatea caruia se definesc mai multe puncte de control va atrage curba spre el. Curba Bezier se aseaza in interiorul conturului poligonal convex definit de punctele de control.
+9.Care sunt caracteristicile curbelor spline?
+R: Termenii curbe spline sau functii spline se refera la rezultatul obtinut prin desenarea unor curbe netede de-a lungul unui set de puncte de control. Matematic asemenea curbe pot fi descrise folosind funtii polinomiale de gradul III cu toate cele 3 ordine de continuitate.un avantaj al curbelor spline este faptul ca gradul polinoamelor de amestec este independent de nr punctelor de control.
+10. Ce sunt punctele de control?
+R: Punctele de control sunt puncte care definesc suprafetele curbe sau linile curbe
+Sub 4.
+1.Enumerati tipurile de modelare a corpurilor 3D(solidelor).
+R:Modelare poligonala
+Modelare b-rep(boundary representation)
+Modelare octree
+Modelare CSG(constructive solid geometry)
+Modelarea suprafetelor prin baleiere
+2. Definiti modelarea poligonala.
+R:Este forma „clasica” folosita în grafica pe calculator si presupune ca un obiect consta dintr-o retea de poligoane plane care aproximeaza suprafata de frontiera. Acest tip de modelare este foarte raspândit deoarece este usor de utilizat si ofera posibilitatea de redare rapida a imaginii obiectelor. Pentru obiectele reprezentate poligonal s-au dezvoltat algoritmi de redare eficienti, care asigura calculul umbririi, eliminarea suprafetelor ascunse, texturare, anti-aliasing, frecvent implementati hardware în sistemele grafice. În prezentarea poligonala, un obiect tridimensional este compus dintr-o colectie de fete, fiecare fata fiind o suprafata plana reprezentata printr-un poligon. Un poligon contine n vârfuri si n muchii, iar muchiile sunt orientate astfel încât formeaza un ciclu închis.
+3.Definiti modelarea b-rep.
+R: Se refera la faptul ca un obiect este descris prin elementele care ii inconjoara suprafata varfuri,laturi, poligoane. Unele reprezentari b-rep restrang domeniul de reprezentare la utilizarea doar a fetelor poligonale sau si mai mult doar la poligoane si triunghiuri convexe. In cazul unei astfel de reprezentari este dificil de determinat care sunt suprafetele care marginesc un corp cu suprafete curbe. O metoda este de a aproxima suprafetele curbe printr-o retea de suprafete poligonale. Alta metoda este de a reprezenta peticele de suprafata rezultate din intersectia curbelor de la reprezentarea suprafetelor parametrice.
+4.Definti modelarea octree.
+R: Octree, adica sub forma unui arbore de octanti, o structura ierarhica arborescenta pentru reprezentarea obiectelor tridimensionale. Idea fundamentala care sta in spatele acestei metode este conceptul "divide et impere" al subdiviziunii binare. Arborele este astfel organizat incat fiecare nod corespunde unei regiuni din spatiul tridimensional. Reprezentarea octree pentru spatiul tridimensional este o extensie a schemei de codare pt spatiu bidimensional numita codare quadtree.
+5.Definiti modelare CSG
+R: Contine primitive simple de iesire si operatori booleeni normalizati. In obiect complex este memorat sub forma unui arbore care contine operatori in nodurile interne si primitivele de iesire in frunze. Nodurile interne pot contine pe langa operatorii booleeni normalizati (U*, intersectia*,-*) si transformari geometrice:
+translatie
+rotatie
+scalare
+Parcurgerea arborelui se face dinspre frunze spre radacina
+6.Definiti modelarea suprafetelor prin baleiere
+R: Modelarea obiectelor tridimensionale se poate face plecand de la simple 2D sau 3D utilizand transformarile de rotatie sau de translatie. Prin balierea unei figuri bidimenionale printr-o zona a spatiului se poate obtine figuri tridimenionale cu simetrie de translatie sau de rotatie. Ex. un cilindru se poate obtine din translatia unui cerc(sau disc) sau din rotatia unei linii(sau a unui dreptunghi).
+7.Cum se determina normala la o suprafata plana
+Normala la o suprafata plana se calculeaza cu ajutorul a 3 puncte necoliniare din suprafata respectiva.
+Avem A(xa,ya,za),B(xb,yb,zb),C(xc,yc,zc).
+Calculam 2 vectori, de ex: 
+8.Cum se determina ecuatia unei suprafete plane
+Normala la o suprafata plana se calculeaza cu ajutorul a 3 puncte necoliniare din suprafata respectiva.
+Avem A(xa,ya,za),B(xb,yb,zb),C(xc,yc,zc).
+Calculam 2 vectori, de ex: 
+
+notam nx=(yb-ya)*(zc-za)-(zb-za)*(yc-ya)
+	ny=(xb-xa)*(zc-za)-(zb-za)*(xc-xa)
+	nz=(xb-xa)*(yc-ya)-(yb-ya)*(xc-xa)
+ec planului:    nx(x-xa)+ny(y-ya)+nz(z-za)=0;
+9.Determinarea relatiei dintre o suprafata plana de ecuatie cunoscuta si un punct din spatiu
+R: Ax+By+Cz+D=0 este ecuatia planului
+orice punct avand coordonatele (x1,y1,z1) ce verifica ecuatia anterioara apartine planului
+daca Ax1+By1+Cz1+D<0 atunci punctul de coordonate (x1,y1,z1) se afla in interiorul planului altfel se afla in exteriorul planului.
+10.Care este utilitatea formulei lui Euler 
+Formula lui Euler ne ajuta sa calculam numarul de varfuri, de laturi sau de fete daca cunoastem doua dintre ele. Astfel putem verifica daca corpurile construite sunt acelea pe care ni le-am imaginat noi.
+Sub 5.
+1.Ce se intelege prin transfomare geometrica?
+R: Transformare geometrice tridimensionale sunt extinderi alea metodelor pentru grafica 2D cu luarea in consideratie a axei Oz..Transformari geometrice sunt :translatia,scalarea,rotatia., etc.O translatie se va specifica printr-un vector de translatie 3D,scalarea va fi specificata prin trei factori de scalare.Ecuatiile transformarilor geometrice pot fi exprimate ca transformari matriciale.Orice secventa de transformari va putea fi apoi exprimata printr-o singura matrice obisnuita din matricea transformarilor individuale  ale secventei de transformari. 
+2.Ce se intelege prin transformare de rotatie? 
+R: Specificare rotatiei unui obiect in spatiul 3D se face prin specificarea urmatoarelor elemente:axa de rotatie si valoarea ungiului de rotatie.
+3.Ce se intelege prin transformarea de translatie?
+R:Intr-o reprezentare in coordonate omogene un punct este translatat din pozitia (x,y,z) in pozitia (x’,y’,z’).
+Dar in translatarea unui obiect 3D se face prin translatarea fiecarui punct definitoriu pentru obiectul respectiv. De ex.translatarea unui obiect reprezentat prin suprafete poligonale se face prin translatarea fiecarui virf al fiecarei suprafete poligonale.Setul coordonatelor virfurilor obtinute in urma translatarii definesc noua pozitie a obiectului.Translatia se face prin vectorul de translatie(Tx,Ty,Tz).
+4.Ce se intelege prin transformarea de scalare?
+R: Transformarea geometrica ce modifica dimensiunea unui obiect.
+5. Ce se intelege prin transformare de reflexie?
+R: Reflexia produce oglindirea fata de un plan dat.  Matricele corespunzatoare reflexiilor in spatiul 3D se seteaza in mod similar celor din grafica 2D.
+Transformarea de oglindire care are ca efect transformarea unui sistem de coordonate dreapta intr-un sistem de coordonate stanga modifica semnul coordonatelor z, lasand nemodificat semnul coordonatelor x si y.  Matricea corespunzatoare reflexiei dupa planul xOy este:
+	1   0   0   0	Daca se aplica aceasta transformare unui sistem de coordonate stanga se obtine
+RFx=	0   1   0   0	un sistem de coordonate dreapta
+	0   0   -1  0
+	0   0   0   1
+6. Ce se intelege prin transformare de intindere?
+R: Intinderea produce o distorsionare a formei obiectului.  Ecuatiile de intindere conduc fie la modificarea coordonatelor x fie la modificarea coordonatelor y, fie a ambelor, pentru a produce distorsionarea dupa ambele axe.  Intinderea dupa axa x afecteaza doar valorile coordonatelor x in timp ce coordonatele y raman nemodificate.  In mod similar, ca transformare 3D, intinderea dupa o axa va modifica valorile a doua dintre coordonatele fiecarui punct definitoriu pentru obiectul caruia I se aplica intinderea.
+Spre exemplu, intinderea dupa axa Oz va modifica coordonatele x si y ale fiecarui punct al obiectului supus transformarii, conform matricei de transformare
+1   0   0   0		Parametrii a si b pot lua orice valori reale.
+0   1   0   0	Efectul transformarii de intindere dupa axa Oz este modificarea valorilor coordonatelor
+a   b   1   0	x si y cu valori direct proportionale cu coordonata z corespunzatoare acelui punct in 
+0   0   0   1	timp ce coordonata z ramane nemodificata.
+Sub 6.
+1.Pasii pt obtinerea transf de rotatie fata de o axa oarecare
+Raspuns: 
+1) se roteste obiectul astfel incat axa de rotatie sa fie paralela cu una din axele sistemului de coordonate
+2) se translateaza obiectul astfel incat axa de rotatie sa coincida cu axa sistemului de coordonate, fata de care a fost mai inainte paralela
+3) se efectueaza rotatia specificata
+4) se aplica operatia de translatare in sens invers celei de la punctual 2
+5) se aplica operatia de rotatie in sens invers primei rotatii executate
+
+2. 3. si 4. Pasii pt obtinerea transf de rotatie fata d o axa paralela cu axa Ox(y'=y*cos(?)-z*sin(?) z’=y*sin(?)+z*cos(?) x’=x) Oy(z'=z*cos(?)-x*sin(?) x’=z*sin(?)+x*cos(?) y’=y) Oz(x'=x*cos(?)-y*sin(?) y’=x*sin(?)+y*cos(?) z’=z)
+Raspuns:
+1) se translateaza obiectul astfel incat axa de rotatie sa coincida cu axa Ox Oy Oz
+2) se efectueaza rotatia specificata
+3) se translateaza obiectul astfel incat axa de rotatie sa revina la pozitia initiala.
+5. Pasii pentru obtinerea transformarii de scalare fata de un punct fix
+R:1)Se aplica operatia de traslatie pentru aducerea punctului fix in originea sistemului
+2) Se face scalarea fata de origine: [x' y' z' 1]=[x y z 1]*| Sx  0   0   0 |
+|  0  Sy  0   0 |
+|  0   0  Sz  0 |
+|  0   0   0   1 |
+3) Se aplica operatia de translatie pentru aducerea punctului fix in pozitia initiala.
+6. Pasii pentru obtinerea transformarii de schimbare a sistemului de coordonate
+R: O translatie care aduce originea unui sistem de coordonate peste originea celuilalt sistem de coordonate urmata de rotatii care duc la suprapunerea axelor. In cazul in care se utilizeaza o scara diferita in cele 2 sisteme trebuie efectuata si o scalare.
+Sub 7.
+1.Ce se intelege prin model de culoare?
+R: Un model de culoare este o metoda de explicare a proprietatilor sau comportarii luminii intr-un context particular.
+2.Ce se intelege prin halftoning?
+R:In cazul in care dispozitivul de afisare este capabil sa furnizeze doar 2 nivele ale intensitatii pt fiecare pixel se vor utiliza metodele halftoning pt a se putea totsi reprezenta diversele valori ale intensitatii unei scene. Fiecare punct din imaginea originala este inlocuit cu o matrice patrata de pixeli. Acesta metoda este mult utilizata in tipografie.Ea se bazeaza pe integrarea spatiaa pe care o realizeaza ochiul uman, astfel dak privim o suprafata mica de la  distanta suficient de mare ochiul face o medie ale micilor detalii care apar si inregistreaza doar intensitatea globala a suprafetei. 
+3.Ce se intelege prin dithering?
+R: Ditheringul este o tehnica pt a insela ochiul in vederea calitatii imaginii din perspectiva culorilor,cand in harware sunt disponibile doar cateva culori. De ce se spune ca se insala ochiul ?:in realitate nr de culori disponibile in harware nu creste dar pt fiecare fragment al imaginii se va folosi in buferul de culoare o matrice de pixeli prin combinarea culorilor disponibile in aceasta matrice se pot obtine mai multe culori datorita capacitatii de interpolare a ochilului uman.Cresterea nr de culori se face in detrimentul rezolutiei.Daca dispozitivul hardware are deja destule culori modificarea obtinuta prin activarea tehnicii dithering nu este sesizata. Tehnica dithering este ultima operatie aplicata fragmentelor in modelul de culoare RGB inainte de a fi inscrise in buferul de culorare.
+4. Cum se stabilesc nivelele de intensitate la dispozitivele monocrome?
+R:Imagine de intensitate := imagine monocroma (grayscale) cu nuante de gri variind intre alb negru si alb. Imaginilor de intensitate le lipseste culoare, fiind prezenta doar informatia de luminozitate care este codificata sub forma nuantelor (tonurilor) de gri care variaza discret (in cazul imaginilor digitale) de la negru (0,0,0) la alb (255,255,255). In reprezentarea spatiala sub forma de cub a modelului RGB axa grayscale corespunde diagonalei principale a cubului [(0,0,0) -> (255, 255, 255). Aceatsa axa are proprietate importanta ca: R = G = B. Converisa unei imagini color (RGB sau cu paleta) se face prin proiectia culorilor fiecarui pixal al imaginii pe axa grayscale a cubului.
+5.Ce se intelege prin conceptul de saturatie in cadrul modelelor de culoare?
+R:Saturatia arata cat de departe se afla o culoare de griul avand aceeasi intensitate. Astfel rosul este saturat, dar rozul este mai putin saturat. Culorile nesaturate includ mai multa lumina alba decat culorile saturate. Culorile pastelate, pale sunt culori nesaturate, iar culorile vii sunt saturate.
+6.Ce se intelege prin cromaticitate?
+R: Termenul de cromaticitate se utilizeaza pt a descrie cele doua caracteristici care dau caracteristicile de culoare frecventa si saturatia. Lumina acromatica este lumina alba care contine in proportii egale toate frecventele vizibile. Lumina cromatica contine o frecventa dominanta.
+7. Modelul de culoare RGB?
+R: Modelul RGB (red, green, blue) este un model de culoare aditiv, in care culorile rosu, verde si albastru sunt adunate in proportii diferite, pt a obtine o gama larga de culori. Este folosit in primul rand in afisaje electronice, desi a fost folosit si in fotografie. Negrul este culoarea naturala (luminozitate 0), peste acesta se suprapun componente luminoase rosii, verzi si albastre, albul se obtine prin combinarea tuturor la maxim. De aceea se numeste un model de culoare aditiv. RGB este un spatiu de culoare dependent de dispozitivul de afisare – fara un control al culorii, aceleasi valori de culoare vor produce culori usor diferite pe diferite dispozitive.
+8. Modelul de culoare HSV?
+R: Specifica culoarea (Hue) si cantitate de alb si de negru pe care sa o adauge pt a obtine : nuante,tonuri,tente. Perametrii de culori:Hue,Saturation,Value. Deriva din cubul RGB. Adaugare de:a)negru-scade V,S=ct;b)alb-scade S,v=ct. Tonuri-scade S si V.
+9. Modelul de culoare HLS?
+R: 
+10. Modelul de culoare CMY?
+R: CMYK (cyan, magenta, yellow, and key (black) ) este un mdel de culoare substractiv, folosit in printarea color.  Modelul CMYK functioneaza mascand total sau partial anumite culori, pe fundalul de obicei alb. Se numeste subtractive, pt ca tusul scade luminozitate din alb. Albul este culoarea naturala, in timp ce negrul se obtine prin combinarea tuturor culorilor. Din motive tehnice si economice se foloseste si a patra culoare, negrul (care insa nu este teoretic necesara) – pentru culorile intunecate se inlocuieste combinatia C+M+Y cu negru.
+Sub 8.
+1.Metoda scan-line 
+R: metoda a spatiului de imagine, poate fi privita ca o extensie a algoritmilui scan-line pentru umplerea poligoanelor; aceasta metoda lucreaza cu mai multe suprafete; in functie de procesarea fiecarei linii, toate suprafetele care intersecteaza liniea de scanare sunt veriticate pentru determinarea vizibilitatii lor; se realizeaza calcule pentru determinarea apropierii fiecarei suprafete de planul de vizualizare; dup aceea se determina suprafata vizibila se introduce valoarea intensitatii pozitiei respective in bufferul de reimprospatare.
+2.Metoda sortarii in adancime 
+R: efectueaza urmatoarele operatii: sorteaza suprafetele in functie de adancime (descrescator); scaneaza suprafetele incepand cu suprafata aflata la ce a mai mare adancime. 
+Pasii necesari pentru metoda sortarii in adancime sunt:
+-	se sorteaza suprafetele in functie de distanta lor fata de planul de vizualizare;  
+-	se introduce in buffer-ul de reimprospatare valorile intensitatiilor suprafetelor celor mai indepartate;
+-	prelucrare suprafetelor in ordine descrescatoare a adancimii.
+3. Metoda subdivizarii ariilor
+R: consta in divizarea succesiva a ariei totale de vizualizare in dreptunghiuri mici, pana cand fiecare arie mica este proiectia a unei parti a unei sg suprafete vizibile sau a nici unei supraf. La implementarea metodei se stabilesc :testele ce identifica in mod rapid aria ca o parte a unei sg suprafetie; testele pt determinarea necesitatii de a impartii aria totala in dreptunghiuri mai mici (daca testele arata ca imag este sufficient de complexa se va realize subdivizarea); se aplica testele asupra ariilor mai mici pana cand subdiviziuniile sunt usor de analizat ajungand pana la dimensiunea unui pixel.
+4.Metoda buffer-ului de adancime
+R:se mai numeste si metoda buffer ului z. Acest algoritm testeaza vizibilitatea unui punc al suprafetei.
+Implementarea metodei necesita doua buffer-e: - buffer ul de adancime (salveaza valorile coordonatei z pt fiecare pozitie); - buffer-ul de reimprospatare (memoreaza intensitatea pozitiilor). In cazul in care coordonata z este mai mica decat ce memorata in buffer ul de adancime (la acea pozitie) punctul respectiv nu va fi vizibil. Dupa realizarea acestei etape pentru toate suprafetele  buffer-ul z contine valori ala coordonatei z pentru suprafetele vizibile, iar bufferul de reimprospatare contien valorile intensitatii.
+5.Eliminarea suprafetelor spate.
+R: Pt un obiect care poate fi aproximat printr-un poliedru suprafetele sale poligonale inchid un volum. Se va considera ca toate suprafetele poligonale sunt astfel definite incat vectorul normal sa fie orientat spre exteriorul poliedrului. in cazul in care planuld e vizualizare nu taie obiectul suprafetele ale caror vectori sunt orientati in partea opusa vectorului de vizualizare sunt suprafete care nu sunt vizibile. Aceasta metoda se bazeaza pe ecuatia planului:Ax+By+Cz+D=0. Un punct se afla in semispatiul interior planului daca satisface inegalitatea M(x1,y1,z1) Ax1+By1+Cz1+D<0
+Sub 9.
+1.Reflexia difuza
+R: Cand lum ambianta este reflectata de o supraf ea produce o ilum unif a supraf, din oricare pe de vizualizare din care supraf este vizibila. Daca o supraf este expusa doar la lum ambianta expresia intens reflexiei difuze in oricare pe al supraf se exprima ca : Id=kd*L. Param kd este coef de reflexie sau refelctivitalea suprafetei, el are o val cuprinsa între 0 si 1 si este o constanta pt o anum supraf. El depinde de propr de reflexie ale supraf.Modelele de umbrire mult mai realiste sunt obtinute prin includerea efectelor surselor punctuale.Calc reflexiei difuze se bazeaza pe legea Iui Lambert, care spune ca intensit luminii reflectate depinde de unghiul de iluminare.
+2.Reflexia speculara
+Pt anumite unghiuri de vizualizare o supraf lucioasa reflecta toata lum incidenta, in mod indep de valorile reflectivitatii. Acest fenom, numit refl speculara produce un pe care este exact de aceeasi culoare cu cea a lum incidente. Obiectele fiind de obicei ilum de lum alba, datorita refl speculare se vede un pct luminos alb pe supraf ob. Pt un ob reflector ideal (oglinda) unghiul de incidenta si cel de refl speculara au aceeasi val..Vect unitar R arata directia reflexiei speculare, vect L arata dir sursei de lum si vect V arata dir pctului de vizualizare.Refl speculara poate fi vz in cazul unui reflector perfect doar daca vect V si R coincid.
+3)Metoda de umbrire poligonala constanta
+R: Cel mai simplu model de umbrire pt un polig este umbrirea const.. Modelul de ilum se va apl in acest caz o singura data pt a determ o val a intens, val care va fi apoi utilizata pt inlregul polig.. Acest model de umbrire poate fi aplicat daca sunt valabile urmat ipoteze : l)sursa de lum este la dist suficient de mare, a. i. produsul (->N)*(->L) este const in orice pct al supraf; 2)pctul de vizualizare a scenei este de asemenea suficient de îndepartat a.i. produsul (->N)*(->L) este const in orice pct al polig; 3)poligoanele nu aproximeaza o supraf curbata.
+4.Umbrire Gouraud
+R: Schema de interpolare dezvoltata de Gouraud anuleaza discontinuitatile dintre planele adiacente ale reprez suprafetelor prin variatia liniara a intens de-a lungul fiecarui plan astfel  in pct de unire ale suprafetelor intens are aceeasi val. In cazul acestei metode val intens de-a lungul fiecarei linii de scanare care trece printr-o supraf sunt interpolate pe baza intensitatii pctelor de intersectie ale suprafetelor. Modelul de reprez Gouraud anuleaza discontinuitatile intensitatii care apar in cazul reprez cu intens const..Zonele puternic luminate ale suprafetei sunt uneori afisate cu dungi.	
+5.Umbrirea Phong
+R:îmbunatatirile in mod de umbrire Gouraud se pot realiza prin aprox normalei la flec pet de-a lungul liniei de scanare si apoi calcularea intensil utilizând normala in acel pct. Aceasta met dezvoltata de Phong este cunoscuta ca schema de interpolare a vect normali. Umbrirea Phong interpoleaza prima data vectorii normali ai pctelor marginale de-a lungul liniei de scanare. Dezavantajul acestei metode este acela ca necesita multe calcule. 
+6.Algoritmul de umbrire Scan Line
+R:O met de generare a umbririlor este de a completa alg Scan-line de determinare a supraf vizibile cu determinarea umbririlor, se consid ca obiectele reprezentate sunt doar poligoane. Marginile poligoanelor care pot "arunca" umbra pe poligonul care inters linia de scanare, sunt proiectate pe poligon considerând sursa de lumina ca centrul proiectiei. Când scanarea travers aceste margini ale umbririi se va modif corespunzator intensit pixelilor reprezentati. O implem a acestui algoritm pt o imag cu n poligoane trebuie sa considere n(n+1) proiectii ale fiec polig pe toate celelalte polig.. O îmbunatatire a acestui algoritm contine un pas de preprocesare. Toate polig sunt proiectate pe o sfera care inconjoara sursa de lumina considerând sursa drept centru al proiectiei. Perechile de proiectii care nu se suprapun pot fi elim iar alg va lua in consid doar poligoanele ale caror proiectii se suprarpun. 
+7. Algoritmul de umbrire in 2 pasi
+R:Algoritmul de umbrire in 2 pasi consta in determinarea umbririlor mai inainte de a se determina suprafetele vizibile. Obiectele din scena sunt procesate de 2 ori pe baza aceluiasi algoritm : odata din punctul de referinta al sursei si apoi din punctul de vizualizare. Rezultatele obtinute sunt combinate pentru determinarea partilor vizibile ale fiecarui poligon care este iluminat. Si acest algoritm este aplicabil pentru obiecte cu reprezentare poligonala. Avantajul algoritmului rezulta in cazul in care aceeasi scena se reprezinta sin mai multe puncte de vizualizare.In aceasta situatie, procesarea imaginii fata de sursa de lumina se reazlizeaza o singura data pentru toate reprezentarile (din toate punctele de vizualizare).
+Pasii algoritmului sunt :
+1.	Se determina suprafetele vizibile pe baza unui algoritm de stergere a suprafetelor ascunse. Rezultatul acestui pas este o lista de poligoane iluminate, etichetate pentru pastrarea legaturii cu poligonul original (parinte). Trebuie subliniat ca poligoanele sunt obtinute in sistemul de referinta al sursei de lumina.
+2.	Se transforma poligoanele in sistemul de referinta original.
+3.	Se combina poligoanele cu lista de poligoane originala, care detine detalii in legatura cu suprafetele poligoanelor.
+4.	Rezultatului i se aplica un algoritm de stergere al suprafetelor ascunse.
+5.	Pe baza unui algoritm de scanare se preprezinta imaginea. Suprafetele vizibile care contin detalii de reprezentare a suprafetelor sunt reprezentate ca luminate iar suprafetele vizibile fara aceste informatii sunt reprezentate ca umbrite.
+8.Algoritmul de umbrire in 2 pasi 
+R: consta in determ umbririlor mai inainte de a se det suprafetele vizibile. Obiectele din scena sunt procesate de 2 ori : o data din pe de referinta al sursei si apoi din pctul de vizualizare. Si acest alg este aplicabil pt obiecte cu suprafete poligonale. Avantajul alg rezulta in cazul in care aceeasi scena se reprezinta din mai multe pcte de vizualiz.. Pasii alg sunt: 1) se det supraf vizibile pe baza unui alg de stergere a suprafetelor ascunse; 2) se transf poligoanele in sistemul de referinta original; 3) se combina poligoanele cu lista de poligoane originala care contine detalii in leg cu supraf poligoanelor; 4) rezultatului i se aplica un alg de stergere a suprafetelor ascunse; 5) pe baza unui alg de scanare se reprezinta imaginea. 
+9.Algoritmul de umbrire z-Buffer in 2 pasi
+R:Se bazeaza pe met bufferului in adâncime utilizata in determ supraf ascunse. Se parcurge alg z-Buff de 2 ori : utilizând ca pct de vizualizare sursa de lumina si apoi utilizând chiar pe de viz al scenei. Pasii alg sunt urmatorii: se calc si se seteaza bufferul de adâncime pt scena vazuta dinspre sursa de lumina; - se seteaza bufferul de adâncime si bufferul de reimprospatare fata de pctul de vizualizare, tinand cont de urm obs : - pt fiec pixel determinat ca vizibil fata de pctyl de vizualizare se transforma coordonatele in sistemul de referinta al sursei de lumina. Pe baza acestor coord se det val zL din bufferul de adâncime pt sursa de lumina; - daca zL<zo' => ca intre pct si sursa de lumina se interpune un obiect care umbreste pctul si se marcheaza pctul ca fiind umbrit. In caz contrar pctul este luminat si este marcat in bufferul de reimprospatare ca luminat.

@@ -1,0 +1,42 @@
+#VRML V2.0 utf8
+# semnul asterix 3D
+Group {
+   children [
+	Background {
+	  skyColor 0.0 0.0 1.0
+	},
+	DirectionalLight {
+	   direction 0.0 -1.0 -1.0
+	   intensity 1.0
+	   ambientIntensity 0.2
+	   color 1.0 1.0 1.0
+	},
+	Viewpoint {
+	   position 10.0, -10.0, 10.0
+	   orientation 0.0 1.0 0.0 0.78
+	},
+
+	# Primul brat
+	DEF Arm1 Shape {
+	   appearance Appearance {
+		material Material {
+		   diffuseColor 0.5 0.3 0.4
+		}
+	   }
+	   geometry Cylinder {
+		height 1.0
+		radius 0.1
+	   }
+	},
+	# Al doilea brat
+	Transform {
+	   rotation 1.0 0.0 0.0 1.047
+	   children USE Arm1
+	},
+	# Al treilea brat
+	Transform {
+	   rotation 1.0 0.0 0.0 2.094
+	   children USE Arm1
+	},
+   ]
+}
